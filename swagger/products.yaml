@@ -1,0 +1,109 @@
+paths:
+  /products:
+    get:
+      tags:
+        - products
+      summary: products list
+      x-swagger-router-controller: universal.search
+      parameters:
+        - $ref: '#/parameters/q'
+        - $ref: '#/parameters/page'
+        - $ref: '#/parameters/sorting'
+        - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/fields'
+      responses:
+        '200':
+          description: reports
+          schema:
+            $ref: '#/definitions/products'
+    put:
+      tags:
+        - products
+      summary: insert new product
+      x-swagger-router-controller: universal.insert
+      parameters:
+        - name: modeldata
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/productInput'
+      responses:
+        '200':
+          description: product added
+          schema:
+            $ref: '#/definitions/products'
+    delete:
+      tags:
+        - products
+      summary: delete product
+      x-swagger-router-controller: universal.remove
+      parameters:
+        - name: _id
+          in: query
+          required: true
+          type: string
+      responses:
+        '200':
+          description: deleted product
+          schema:
+            $ref: '#/definitions/products'
+    patch:
+      tags:
+        - products
+      summary: for updated product document
+      x-swagger-router-controller: universal.update
+      parameters:
+        - name: modeldata
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/productUpdate'
+      responses:
+        '200':
+          description: updated product
+          schema:
+            $ref: '#/definitions/products'
+
+definitions:
+  productInput:
+    type: object
+    properties:
+      name:
+        type: string
+        required: true
+      description:
+        type: string
+      photo:
+        type: string
+      price:
+        type: string
+        required: true
+      category:
+        type: string
+        format: mongoId
+  productUpdate:
+    type: object
+    properties:
+      _id:
+        type: string
+        format: mongoId
+  products:
+    type: object
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      photo:
+        type: string
+      price:
+        type: string
+      category:
+        type: object
+        properties:
+          id:
+            type: string
+          name:
+            type: string
+
+

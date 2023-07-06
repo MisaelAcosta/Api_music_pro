@@ -1,0 +1,21 @@
+{
+  "name": "ecommercetest",
+  "version": "1.0.0",
+  "description": "this is example",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "universal",
+    "pattern"
+  ],
+  "author": "misael",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.9",
+    "express": "^4.18.2",
+    "mongojs": "^3.1.0",
+    "universal-pattern": "^1.0.30"
+  }
+}

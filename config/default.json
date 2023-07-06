@@ -1,0 +1,14 @@
+{
+    "basePath": "/core",
+    "host": "localhost",
+    "port": 3000,
+    "name": "ecommerce",
+    "version": "0.1",
+    "connection": {
+      "mongodb": {
+        "uri": "mongodb+srv://ecommerce:wilper123@cluster0.vv94uwp.mongodb.net/?retryWrites=true&w=majority",
+        "name": "uptest"
+      }
+    }
+  }
+  
